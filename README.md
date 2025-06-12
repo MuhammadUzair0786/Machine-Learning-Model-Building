@@ -65,6 +65,25 @@ model.predict([X_test.iloc[0].values])  # Predict for first test row
 
 ---
 
+# Polynomial Regression
+
+This notebook demonstrates how to use polynomial regression to model non-linear relationships between temperature and ice cream sales.
+
+## Steps
+- Load and explore the dataset.
+- Visualize the relationship between temperature and sales.
+- Transform features using `PolynomialFeatures`.
+- Split data into train and test sets.
+- Train a `LinearRegression` model on polynomial features.
+- Evaluate model performance (R² score).
+- Visualize the polynomial regression curve.
+- Predict sales for a given temperature.
+
+## Note
+- Polynomial regression is useful when data is not linear.
+- Always predict within the range of your training data for reliable results.
+
+
 ## Requirements
 
 - Python 3.x
