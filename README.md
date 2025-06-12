@@ -1,58 +1,69 @@
-# Simple Linear Regression Model
+# Linear Regression Models: Simple & Multiple
 
-This project demonstrates how to build and evaluate a simple linear regression model using Python and scikit-learn. The example uses a salary dataset to predict salary based on years of experience.
+This project demonstrates how to build, evaluate, and interpret both **Simple Linear Regression** and **Multiple Linear Regression** models using Python and scikit-learn. The examples use salary datasets to predict salary based on one or more input features.
 
-## Steps Covered
+---
 
-- **Data Loading:**  
-  The dataset is loaded using pandas.
+## 1. Simple Linear Regression
 
-- **Data Exploration:**  
-  Basic statistics and missing values are checked.  
-  A scatter plot is used to visualize the relationship between years of experience and salary.
+**Simple Linear Regression** is used to predict a target variable (e.g., Salary) using a single input feature (e.g., Years of Experience).
 
-- **Feature Selection:**  
-  - `YearsExperience` is used as the input feature.
-  - `Salary` is used as the target variable.
+### Steps Covered:
+- Load and explore the dataset.
+- Visualize the relationship between the feature and target.
+- Split the data into training and testing sets.
+- Train a linear regression model.
+- Evaluate model performance using R² score.
+- Predict salary for new data.
+- Visualize the regression line.
 
-- **Train-Test Split:**  
-  The data is split into training and testing sets to evaluate model performance.
+---
 
-- **Model Training:**  
-  A `LinearRegression` model is trained on the training data.
+## 2. Multiple Linear Regression
 
-- **Model Evaluation:**  
-  The model's accuracy is checked using the test set (R² score).
+**Multiple Linear Regression** predicts the target variable using two or more input features (e.g., Age, Experience, Education).
 
-- **Prediction:**  
-  The model predicts salary for a given value of years of experience.
+### Steps Covered:
+- Load and inspect the dataset.
+- Visualize relationships and correlations between features.
+- Split the data into training and testing sets.
+- Train a multiple linear regression model.
+- Evaluate model performance using R² score.
+- Make predictions on new data.
+- Interpret model coefficients.
 
-- **Visualization:**  
-  The regression line is plotted along with the data points to show the model fit.
+---
 
-## Example Usage
+## Example Code Snippets
 
+**Simple Linear Regression:**
 ```python
 from sklearn.linear_model import LinearRegression
 from sklearn.model_selection import train_test_split
 
-# Prepare data
 input_data = dataset[['YearsExperience']]
 output_data = dataset['Salary']
 
-# Split data
-X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.2, random_state=30)
-
-# Train model
+X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.2, random_state=42)
 model = LinearRegression()
 model.fit(X_train, y_train)
-
-# Evaluate
 print(model.score(X_test, y_test))
-
-# Predict
-model.predict(pd.DataFrame([[2.3]], columns=['YearsExperience']))
+model.predict([[2.5]])  # Predict for 2.5 years experience
 ```
+
+**Multiple Linear Regression:**
+```python
+input_data = dataset.iloc[:, :-1]  # All columns except last (target)
+output_data = dataset['salary']
+
+X_train, X_test, y_train, y_test = train_test_split(input_data, output_data, test_size=0.2, random_state=42)
+model = LinearRegression()
+model.fit(X_train, y_train)
+print(model.score(X_test, y_test))
+model.predict([X_test.iloc[0].values])  # Predict for first test row
+```
+
+---
 
 ## Requirements
 
@@ -65,4 +76,13 @@ model.predict(pd.DataFrame([[2.3]], columns=['YearsExperience']))
 
 ---
 
-This notebook is a practical guide for beginners to understand and implement simple linear regression for predictive modeling.
+## Usage
+
+1. Open the notebook in Jupyter.
+2. Follow the steps for simple or multiple linear regression as needed.
+3. Visualize and interpret the results.
+4. Modify the code for your own datasets and features.
+
+---
+
+This project is a practical guide for beginners to understand and apply both simple and multiple linear regression for predictive modeling.
