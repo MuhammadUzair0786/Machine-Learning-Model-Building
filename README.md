@@ -83,6 +83,56 @@ This notebook demonstrates how to use polynomial regression to model non-linear 
 - Polynomial regression is useful when data is not linear.
 - Always predict within the range of your training data for reliable results.
 
+This notebook demonstrates how to use **Ridge** and **Lasso** regression for regularization in linear models. These techniques help prevent overfitting and improve model generalization, especially when working with datasets that have many features.
+
+## What are Ridge and Lasso Regression?
+
+- **Ridge Regression (L2 Regularization):**
+  - Adds a penalty equal to the square of the magnitude of coefficients to the loss function.
+  - Shrinks coefficients but does not set them exactly to zero.
+  - Useful when all features are important but need to reduce their impact.
+
+- **Lasso Regression (L1 Regularization):**
+  - Adds a penalty equal to the absolute value of the magnitude of coefficients.
+  - Can shrink some coefficients to exactly zero, effectively performing feature selection.
+  - Useful when you suspect that only a few features are important.
+
+## Steps Covered
+
+- Load and preprocess the dataset (handle missing values, encode categorical variables, scale features).
+- Split the data into training and testing sets.
+- Train a standard linear regression model for comparison.
+- Train and evaluate Ridge and Lasso regression models.
+- Compare model performance using R² score on both train and test sets.
+- Discuss the effect of the regularization parameter (`alpha`).
+
+## Example Code
+
+```python
+from sklearn.linear_model import Ridge, Lasso
+from sklearn.model_selection import train_test_split
+
+# Split data
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+# Ridge Regression
+ridge = Ridge(alpha=1.0, max_iter=10000, random_state=42)
+ridge.fit(x_train, y_train)
+print("Ridge Train Score:", ridge.score(x_train, y_train))
+print("Ridge Test Score:", ridge.score(x_test, y_test))
+
+# Lasso Regression
+lasso = Lasso(alpha=1.0, max_iter=10000, random_state=42)
+lasso.fit(x_train, y_train)
+print("Lasso Train Score:", lasso.score(x_train, y_train))
+print("Lasso Test Score:", lasso.score(x_test, y_test))
+```
+
+## Notes
+
+- Adjust the `alpha` parameter to control the strength of regularization.
+- Use cross-validation to find the best `alpha` value for your data.
+- Ridge is preferred when all features are useful; Lasso is preferred for feature selection.
 
 ## Requirements
 
@@ -103,5 +153,3 @@ This notebook demonstrates how to use polynomial regression to model non-linear 
 4. Modify the code for your own datasets and features.
 
 ---
-
-This project is a practical guide for beginners to understand and apply both simple and multiple linear regression for predictive modeling.
