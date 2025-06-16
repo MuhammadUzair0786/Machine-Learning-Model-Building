@@ -134,6 +134,49 @@ print("Lasso Test Score:", lasso.score(x_test, y_test))
 - Use cross-validation to find the best `alpha` value for your data.
 - Ridge is preferred when all features are useful; Lasso is preferred for feature selection.
 
+# Logistic Regression: Binary & Multiclass
+
+This project demonstrates how to use logistic regression for both binary and multiclass classification problems using Python and scikit-learn.
+
+## Binary Logistic Regression
+- Used when the target variable has two classes (e.g., Yes/No, 0/1).
+- Predicts the probability that an input belongs to a particular class.
+
+## Multiclass Logistic Regression
+- Used when the target variable has more than two classes.
+- scikit-learn’s `LogisticRegression` handles multiclass classification automatically using strategies like one-vs-rest and i use in this practice OVR and Multinomail method.
+
+## Steps Covered
+- Load and explore the dataset.
+- Preprocess data (handle missing values, encode categorical variables, scale features).
+- Split data into training and testing sets.
+- Train a logistic regression model.
+- Evaluate model performance using accuracy score.
+
+## Example Code
+```python
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
+# Split data
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
+
+# Train model
+model = LogisticRegression()
+model.fit(x_train, y_train)
+
+# Evaluate
+print("Accuracy:", model.score(x_test, y_test))
+```
+
+## Note
+- Use for both binary and multiclass problems by changing the target variable.
+- Always preprocess your data for best results.
+
+---
+This notebook is a quick guide to implementing binary and multiclass logistic regression in real-
+
+
 ## Requirements
 
 - Python 3.x
