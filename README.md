@@ -177,6 +177,42 @@ print("Accuracy:", model.score(x_test, y_test))
 This notebook is a quick guide to implementing binary and multiclass logistic regression in real-
 
 
+# Sampling Techniques in Machine Learning
+
+This project demonstrates common sampling techniques used in data preprocessing for machine learning.
+
+## What is Sampling?
+
+Sampling is the process of selecting a subset of data from a larger dataset. It is useful for:
+- Handling imbalanced datasets (e.g., more 0s than 1s in the target).
+- Reducing computation time by working with a smaller sample.
+- Creating train-test splits for model evaluation.
+
+## Common Sampling Techniques
+
+- **Random Sampling:**  
+  Selects samples randomly from the dataset. Useful for creating unbiased train-test splits.
+
+- **Stratified Sampling:**  
+  Ensures that the sample maintains the same class proportions as the original dataset. Important for imbalanced classification problems.
+
+- **Over-Sampling:**  
+  Increases the number of samples in the minority class (e.g., using SMOTE).
+
+- **Under-Sampling:**  
+  Reduces the number of samples in the majority class.
+
+## Example Code
+
+## Note
+
+- Always use stratified sampling for imbalanced classification tasks.
+- Sampling helps improve model performance and evaluation reliability.
+
+---
+
+This notebook is a practical guide for beginners to understand and apply sampling techniques in machine
+
 ## Requirements
 
 - Python 3.x
