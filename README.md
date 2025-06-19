@@ -211,6 +211,32 @@ Sampling is the process of selecting a subset of data from a larger dataset. It 
 
 ---
 
+# Naive Bayes Models: Gaussian, Multinomial, Bernoulli
+
+This notebook demonstrates how to use the three main types of Naive Bayes classifiers in scikit-learn:
+
+## 1. Gaussian Naive Bayes
+- Used for continuous (numeric) features.
+- Assumes features follow a normal (Gaussian) distribution.
+
+## 2. Multinomial Naive Bayes
+- Used for discrete count data (e.g., word counts in text classification).
+- Suitable for categorical features after encoding.
+
+## 3. Bernoulli Naive Bayes
+- Used for binary (0/1) features.
+- Suitable for data where features are either present or absent.
+
+## Steps Covered
+- Load and preprocess the dataset.
+- Encode categorical features if needed.
+- Split data into training and testing sets.
+- Train and evaluate each Naive Bayes model.
+- Compare their performance using accuracy score.
+
+## Note
+- Choose the Naive Bayes variant that matches your feature types
+
 This notebook is a practical guide for beginners to understand and apply sampling techniques in machine
 
 ## Requirements
